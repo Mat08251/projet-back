@@ -2027,9 +2027,9 @@
                     <h2>Sign up</h2>
                     <p>Fill out the form below to recieve a free and confidential</p>
                 </div>
-                <form action="#" class="signup-form">
+                <form action="traitement.php" method="post" class="signup-form">
                     <div class="sf-input-list">
-                        <input type="text" class="input-value" placeholder="User Name*">
+                        <input type="text" class="input-value" name="prenom" placeholder="prenom">
                         <input type="text" class="input-value" placeholder="Password">
                         <input type="text" class="input-value" placeholder="Confirm Password">
                         <input type="text" class="input-value" placeholder="Email Address">

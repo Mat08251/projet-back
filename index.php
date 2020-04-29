@@ -2029,11 +2029,10 @@
                 </div>
                 <form action="traitement.php" method="post" class="signup-form">
                     <div class="sf-input-list">
-                        <input type="text" class="input-value" name="prenom" placeholder="prenom">
-                        <input type="text" class="input-value" placeholder="Password">
-                        <input type="text" class="input-value" placeholder="Confirm Password">
-                        <input type="text" class="input-value" placeholder="Email Address">
-                        <input type="text" class="input-value" placeholder="Full Name">
+                        <input type="text" class="input-value" name="pseudo" placeholder="pseudo">
+                        <input type="text" class="input-value" name="pass" placeholder="Password">
+                        <input type="text" class="input-value" name="email" placeholder="email">
+                        <input type="text" class="input-value" name="nom" placeholder="nom">
                     </div>
                     <div class="radio-check">
                         <label for="rc-agree">I agree with the term & conditions

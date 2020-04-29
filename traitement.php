@@ -1,5 +1,20 @@
-<p>Bonjour !</p>
+<?php
+try
+{
+    $bdd = new PDO('mysql:host=localhost;dbname=projet_back;charset=utf8', 'root', '');
+}
+catch(Exception $e)
+{
+        die('Erreur : '.$e->getMessage());
+}
 
-<p>Je sais comment tu t'appelles, hé hé. Tu t'appelles <?php echo $_POST['prenom']; ?> !</p>
+$req = $bdd->prepare('INSERT INTO user(pseudo, pass, email, nom) VALUES(:pseudo, :pass, :email, :nom)');
+$req->execute(array(
+    'pseudo' => $pseudo,
+    'pass' => $pass,
+    'email' => $email,
+    'nom' => $nom     
+));
 
-<p>Si tu veux changer de prénom, <a href="index.php">clique ici</a> pour revenir à la page formulaire.php.</p>
+echo 'vous vous êtes bien inscrit';
+?>

@@ -9,22 +9,37 @@ catch(Exception $e)
 }
 
 $pseudo = htmlspecialchars($_POST['pseudo']);
-$pseudo = htmlspecialchars($_POST['pass']);
-$pseudo = htmlspecialchars($_POST['email']);
-$pseudo = htmlspecialchars($_POST['nom']);
-
-if(!empty($_POST['pseudo']) AND !empty($_POST['pass']) AND !empty($_POST['email']) AND !empty($_POST['nom']))
-{
+$pass = htmlspecialchars($_POST['pass']);
+$email = htmlspecialchars($_POST['email']);
+$nom = htmlspecialchars($_POST['nom']);
 
 
+     	//vérification si le pseudo existe déjà dans la base
+     	    $reqpseudo = $bdd->prepare("SELECT * FROM user WHERE pseudo = ?");
+     	    $reqpseudo->execute(array($pseudo));
+     	    $pseudoexist = $reqpseudo->rowCount();
+     	    if($pseudoexist == 0)
+     	    {
+                $reqemail = $bdd->prepare("SELECT * FROM user WHERE email = ?");
+                $reqemail->execute(array($email));
+                $emailexist = $reqemail->rowCount();
+                if($emailexist == 0) 
+                {
+                    $req = $bdd->prepare("INSERT INTO user(pseudo, pass, email, nom) VALUES(?, ?, ?, ?)");
+                    $req->execute(array($pseudo, $pass, $email,$nom));
+                    header ('Location: index.php?success=1'); 
+                }
+                else
+                {
+                    echo "l'email utilisé existe déjà";
+                }
+            }
+            else 
+            {
+                echo 'le pseudo utilisé existe déjà';
+            }
 
-$req = $bdd->prepare('INSERT INTO user(pseudo, pass, email, nom) VALUES(:pseudo, :pass, :email, :nom)');
-$req->execute(array(
-    'pseudo' => $_POST['pseudo'],
-    'pass' => $_POST['pass'],
-    'email' => $_POST['email'],
-    'nom' => $_POST['nom']     
-));
-
-
+           
+                  
+                 
 ?>

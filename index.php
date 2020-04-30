@@ -113,6 +113,7 @@
                                 <li><i class="fa fa-clock-o"></i> Aug 01, 2019</li>
                                 <li class="signup-switch signup-open"><i class="fa fa-sign-out"></i> Login / Sign up
                                 </li>
+                                <li><a href="connexion.php">Se connecter</a></li>
                             </ul>
                         </div>
                     </div>
@@ -246,6 +247,17 @@
         </div>
     </header>
     <!-- Header End -->
+<?php
+if (isset($_GET['success'])){
+    if ($_GET['success'] ==1 )
+    {?>
+        <div class="alert alert-success ">
+            <center>utilisateur est bien enregistré</center>
+        </div>
+<?php
+    }
+}
+?>
 
     <!-- Hero Section Begin -->
     <section class="hero-section">

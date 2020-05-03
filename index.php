@@ -236,6 +236,7 @@
                                 <li><a href="./details-post-gallery.php">Post gallery</a></li>
                                 <li><a href="./details-post-review.php">Post review</a></li>
                                 <li><a href="./contact.php">Contact</a></li>
+                                <li><a href="./admin/article.php">article</a></li>
                             </ul>
                         </li>
                         <li><a href="#"><span>Reviews <i class="fa fa-angle-down"></i></span></a></li>
